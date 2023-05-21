@@ -16,22 +16,11 @@ def limpar_tela():
 def gerador():
 
     limpar_tela()
-    lista_senha_nova = []
 
     comprimento = int(input('Quantos caracteres pode ter a senha? '))
-    senha = 0
-    while senha < comprimento:
-        caracteres = ['!', '@', '.']
+    caracteres = string.ascii_letters + string.digits + string.punctuation
 
-        if caracteres in lista_senha_nova:
-            inserir_senha = random.choice(string.ascii_letters)
-            lista_senha_nova.append(inserir_senha)
-        else:
-            lista_senha_nova.append(random.choice(caracteres))
-        
-        senha += 1
-
-    senha_nova = ''.join(lista_senha_nova)
+    senha_nova = ''.join(random.choice(caracteres) for _ in range(comprimento)) 
     
     print('Sua nova senha é:', senha_nova)
 
